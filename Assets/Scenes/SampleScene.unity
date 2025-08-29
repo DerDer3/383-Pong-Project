@@ -369,6 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23cce4c32fc6f4a45b3c9224ab91376f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  paddle: {fileID: 3553832987214392654, guid: d3568e679b1c84f408a62ffad4b9449a, type: 3}
+  ball: {fileID: 7028351167382419456, guid: 3e5355057fd97f94f84af9e2d09e479e, type: 3}
 --- !u!4 &701327525
 Transform:
   m_ObjectHideFlags: 0

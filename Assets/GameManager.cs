@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,9 +7,13 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Paddle paddle;
     public Ball ball;
-    public static Vector2; 
+    public static Vector2 bottomLeft; 
+    public static Vector2 topRight; 
     void Start()
     {
+        bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+        topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
         Instantiate(ball);
         Paddle paddle1 = Instantiate(paddle) as Paddle;
         Paddle paddle2 = Instantiate(paddle) as Paddle;
