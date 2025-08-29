@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Ball : MonoBehaviour
 {
@@ -10,6 +13,10 @@ public class Ball : MonoBehaviour
 
     float radius;
     Vector2 direction;
+
+    public Scoreboard scoreReference;
+
+    public static event Action<String> OnPointScored;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +27,10 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.isPaused)
+        {
+            return;
+        }
         transform.Translate(direction * speed * Time.deltaTime);
 
         if (transform.position.y < GameManager.bottomLeft.y + radius && direction.y < 0)
@@ -34,14 +45,14 @@ public class Ball : MonoBehaviour
         if (transform.position.x < GameManager.bottomLeft.x + radius && direction.x < 0)
         {
             Debug.Log("Right Player wins");
-            Time.timeScale = 0;
-            enabled = false;
+            OnPointScored?.Invoke("Right");
+            transform.position = Vector2.zero;
         }
-        if (transform.position.y > GameManager.topRight.x - radius && direction.x > 0)
+        if (transform.position.x > GameManager.topRight.x - radius && direction.x > 0)
         {
             Debug.Log("Left Player Wins");
-            Time.timeScale = 0;
-            enabled = false;
+            OnPointScored?.Invoke("Left");
+            transform.position = Vector2.zero;
         }
 
     }

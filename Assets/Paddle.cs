@@ -47,6 +47,10 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.isPaused)
+        {
+            return;
+        }
         float move = Input.GetAxis(input) * Time.deltaTime * speed;
 
         if (transform.position.y < GameManager.bottomLeft.y + height / 2 && move < 0)
