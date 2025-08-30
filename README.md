@@ -1,6 +1,6 @@
 # Install
 
-To install and run the game. Go to releases and download Pong.exe under v1.0. Then double click the downloaded executable to run the game.
+To install and run the game. Go to releases and download Pong.exe under v1.1. Then double click the downloaded executable to run the game.
 
 # Controls
 
