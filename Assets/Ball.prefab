@@ -178,5 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3252d4388166045aec3aa735640209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ball
-  speed: 5
+  speed: 7
   scoreReference: {fileID: 0}
